@@ -6,7 +6,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import { FC, useState } from "react";
+import { FC, useMemo, useState } from "react";
 import { IProduct } from "../../interfaces";
 
 interface Props {
@@ -15,6 +15,12 @@ interface Props {
 
 export const ProductCard: FC<Props> = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const productImage = useMemo(() => {
+    return isHovered
+      ? `products/${product.images[1]}`
+      : `products/${product.images[0]}`;
+  }, [isHovered, product.images]);
 
   return (
     <Grid
@@ -28,7 +34,7 @@ export const ProductCard: FC<Props> = ({ product }) => {
         <CardActionArea>
           <CardMedia
             component="img"
-            image={`products/${product.images[0]}`}
+            image={productImage}
             alt={product.title}
           />
         </CardActionArea>
