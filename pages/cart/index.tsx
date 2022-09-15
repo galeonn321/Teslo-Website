@@ -33,7 +33,7 @@ const index = () => {
                   color="secondary"
                   className="circular-btn"
                   fullWidth
-                ></Button>
+                > Checkout</Button>
               </Box>
             </CardContent>
           </Card>
