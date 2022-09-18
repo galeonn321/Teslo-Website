@@ -39,10 +39,9 @@ const productSchema = new Schema(
   }
 );
 
-
-
 //TODO Creat indice
 
-const Product:Model<IProduct>
+const Product: Model<IProduct> =
+  mongoose.models.Product || model("Product", productSchema);
 
-
+export default Product;
