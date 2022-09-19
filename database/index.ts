@@ -1,4 +1,4 @@
 export * as db from'./db'
 
 //Database prueba
-export * as seedData from './products'
+export * as seedDatabase from './products'
