@@ -1,8 +1,21 @@
+# services:
+#   teslodb:
+#     image: mongo:6.0.1
+#     container_name: teslo-database
+#     ports:
+#       - 27017:27017
+#     volumes:
+#       - ./mongo:/data/db'
+
+version: '3'
+
 services:
-  teslodb:
-    image: mongo:5.0.0
-    container_name: teslo-database
+  db:
+    image: mongo:6.0.1
+    restart: always
     ports:
-      - 27017:27017
+      - 27018:27017
+    environment:
+       - MONGO_DATABASE:teslo-database
     volumes:
       - ./mongo:/data/db
