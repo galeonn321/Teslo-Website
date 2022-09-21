@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { db } from "../../../database";
+import { db, SHOP_CONSTANTS } from "../../../database";
 import { IProduct } from "../../../interfaces";
 import { Product } from "../../../models";
 
@@ -24,7 +24,7 @@ const getProducts = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 
   let condition = {};
 
-  if (gender != "all") {
+  if (gender != "all" && SHOP_CONSTANTS.validGenders.includes(`${gender}`)) {
     condition = { gender };
   }
 
